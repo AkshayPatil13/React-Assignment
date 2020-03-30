@@ -1,0 +1,34 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body #root{
+  width: 80%;
+  margin: 0 auto;
+  background-color: #F9FAFC;;
+  height: 80vh;
+  position: relative;
+}
+
+nav{
+  background-color: #384B59;;
+}
+
+nav ul li{
+display: inline-block;
+font-size: 20px;
+padding: 20px;
+margin-left: 10px;
+} 
+
+.active{
+  color:#E11B22;
+}
+
+a{
+  color: white;
+  text-decoration: none;
+}

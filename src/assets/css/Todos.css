@@ -1,0 +1,28 @@
+.listStyle{
+    padding: 12px 8px 12px 40px;
+    background: #eee;
+    font-size: 18px;
+    transition: 0.2s;
+    list-style-type: none;
+    margin-bottom: 5px;
+    box-shadow: 0 0 3px rgba(0,0,0,0.1);
+}
+
+.image{
+    height: 357px;
+    margin-left: 150px;
+    margin-top: 50px;
+}
+
+.checkbox{
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    margin-right: 10px;
+    text-decoration: line-through;
+}
+
+.span{
+    margin-right:10px;
+    cursor:pointer;
+}

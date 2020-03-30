@@ -1,0 +1,50 @@
+h1{
+  text-align: center;
+}
+
+.app-container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form-container{
+  background-color: #FFFFFF;
+  border-radius: 3px;
+  padding: 25px 40px;
+  width: 400px;
+  margin-top: 40px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+button{
+  background-color: #E11B22;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 10px 20px;
+  margin: 20px 127px;
+  color: #FFFFFF;
+}
+
+button:disabled,
+button[disabled]{
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.inputStyle{
+  width: 100%;
+  font-size: 14px;
+  background-color: #FAFBFC;
+  border: 2px solid #DFE1E6;
+  border-radius: 3px;
+  height: 44px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+
+
+
