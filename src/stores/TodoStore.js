@@ -4,6 +4,8 @@ import { toJS } from 'mobx';
 class TodoStore{
     @observable todos = [];
     @observable todoId = '';
+    @observable filterText = '';
+
     generateId(){
         return '_' + Math.random().toString(36).substr(2, 9)
     }
@@ -53,6 +55,11 @@ class TodoStore{
     @computed
     get remainingTodoCount(){
         return this.todos.filter(todo => !todo.completed).length;
+    }
+
+    @computed
+    get filteredTodos(){
+        return this.todos.filter(todo => !this.filterText || todo.task.toLowerCase().includes(this.filterText.toLocaleLowerCase()))
     }
 
     @action

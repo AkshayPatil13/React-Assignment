@@ -4,7 +4,8 @@ import { FaTrashAlt } from 'react-icons/fa';
 import EditableLabel from 'react-inline-editing';
 import NoDataFound from '../assets/images/nodata-found.png';
 import { toast } from 'react-toastify';
-import '../assets/css/Todos.css'
+import '../assets/css/Todos.css';
+import TaskCount from './TaskCount';
 
 @inject('TodoStore')
 @observer
@@ -24,6 +25,10 @@ import '../assets/css/Todos.css'
         // this.props.TodoStore.setTodoId(text);
     }
 
+    filterHandler = (event) => {
+        this.props.TodoStore.filterText = event.target.value;
+    }
+
     _handleFocusOut = (text) => {
         if(text.length === 0){
             toast.warn("Task title cannot be kept empty",{
@@ -39,7 +44,7 @@ import '../assets/css/Todos.css'
         const { TodoStore } = this.props;
     
         return(
-            <div>
+            <>
                 {
                     TodoStore.todosCount === 0 ?
                         <img 
@@ -47,10 +52,23 @@ import '../assets/css/Todos.css'
                             alt="No Data Found"
                             className="image"
                         /> : 
-                        (<>
-                            <ul style={{margin: '50px'}}>
+                        (<div style={{padding: '40px'}}>
+                            <TaskCount 
+                                TodoStore = {this.props.TodoStore}
+                            />
+                            <div style={{clear: 'both'}}></div>
+                            
+                            <input 
+                                type="text" 
+                                className="search-todos" 
+                                placeholder="Search your todos..."
+                                value = {TodoStore.filterText}
+                                onChange = {(e) => this.filterHandler(e)}
+                                />
+
+                            <ul className="ulStyle">
                                 {
-                                    TodoStore.todos.map(todo=> (
+                                    TodoStore.filteredTodos.map(todo=> (
                                         <li className="listStyle" key={todo.id}>
                                             <input
                                                 type="checkbox"
@@ -91,15 +109,9 @@ import '../assets/css/Todos.css'
                                     ))
                                 }
                             </ul>
-                            <h4 style={{marginLeft: '50px'}}>
-                                Tasks left : {TodoStore.remainingTodoCount}
-                            </h4>
-                            <small style={{marginLeft: '50px'}}>
-                                Please click on the task to edit it.
-                            </small>
-                        </>)     
+                        </div>)     
                 }
-            </div>
+            </>
         )
     }
 }
